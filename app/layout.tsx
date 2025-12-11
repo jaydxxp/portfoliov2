@@ -83,7 +83,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/og-image.png", 
+        url: "/portfolio.png?v=2", 
         width: 1200,
         height: 630,
         alt: "Jaydeep Wagaskar Portfolio Preview",
@@ -96,7 +96,7 @@ export const metadata: Metadata = {
     title: "Jaydeep Wagaskar – Full Stack Developer & UI/UX Designer",
     description:
       "Full Stack Developer & UI/UX Designer crafting modern full-stack web applications.",
-    images: ["/portfolio.png"],
+    images: ["/portfolio.png?v=2"],
     creator: "@jayydeeppp", 
   },
 
