@@ -27,7 +27,7 @@ export default function Footer() {
       className="
         flex flex-row items-stretch
         font-satoshi justify-center
-        py-12 
+        
         "
     >
 
