@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useEffect, useState } from "react";
 export default function Footer() {
   const [time, setTime] = useState("");
@@ -26,11 +26,8 @@ export default function Footer() {
     <div
       className="
         flex flex-row items-stretch
-        font-satoshi justify-center
-        
-        "
+        font-satoshi justify-center"
     >
-
       <div className="flex items-center gap-3 text-xs text-[#444] border-t pt-2 border-t-[#444] md:w-140 w-70 pb-12 mt-12">
         <span className="w-2 h-2 bg-[#006EC9] rounded-full"></span>
         <span className="font-medium ">Mumbai, India</span>
