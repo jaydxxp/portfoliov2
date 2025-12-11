@@ -5,7 +5,7 @@ import Satoshi from "next/font/local"
 import { Hanken_Grotesk } from "next/font/google";
 import { Pixelify_Sans } from "next/font/google";
 import { Instrument_Serif } from "next/font/google";
-
+import { Analytics } from "@vercel/analytics/react";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -49,7 +49,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${Satoshi_font.variable} ${Pixelify.variable} ${Grotesk.variable} ${Instrument.variable} antialiased`}
       >
-        {children}
+        {children} <Analytics/>
       </body>
     </html>
   );
