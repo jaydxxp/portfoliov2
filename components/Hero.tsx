@@ -19,7 +19,7 @@ export default function Hero() {
         </h2>
 
         <p className="text-black text-md md:text-lg font-bold mt-4">
-          Full Stack Developer | UI/UX Designer
+          Full Stack Developer
         </p>
 
         <p className="text-sm md:text-sm text-[#666] mt-4 leading-5 text-justify">
