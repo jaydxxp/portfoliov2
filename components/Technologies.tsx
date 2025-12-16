@@ -1,4 +1,5 @@
 import AWS from "./Svg/Aws";
+import Bun from "./Svg/Bun";
 import ExpressJs from "./Svg/ExpressJs";
 import Figma from "./Svg/Figma";
 import Github from "./Svg/Github";
@@ -45,6 +46,7 @@ export default function Technologies() {
           <SkillTab href="https://mongodb.com" icon={<MongoDB />} label="MongoDB" />
           <SkillTab href="https://nodejs.org" icon={<NodeJs />} label="Node.js" />
           <SkillTab href="https://postgresql.org" icon={<PostgreSQL />} label="PostgreSQL" />
+          <SkillTab href="https://bun.com" icon={<Bun/>} label="Bun"/>
           <SkillTab href="https://postman.com" icon={<Postman />} label="Postman" />
           <SkillTab href="https://prisma.io" icon={<Prisma />} label="Prisma" />
           <SkillTab href="https://ui.shadcn.com" icon={<Shadcn />} label="Shadcn" />
