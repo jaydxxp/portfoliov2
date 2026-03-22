@@ -10,13 +10,11 @@ import ExpressJs from "./Svg/ExpressJs";
 import Vercel from "./Svg/Vercel";
 import Chartjs from "./Svg/Chartjs";
 import Jwt from "./Svg/Jwt";
-import PostgreSQL from "./Svg/PostgreSql";
+
 import Gemini from "./Svg/Gemini";
 import Shadcn from "./Svg/Shadcn";
-import Prisma from "./Svg/Prisma";
-import JavaScript from "./Svg/Javascript";
-import Workers from "./Svg/Workers";
-import Hono from "./Svg/Hono";
+
+import Bun from "./Svg/Bun";
 
 export default function Projects() {
   return (
@@ -28,6 +26,20 @@ export default function Projects() {
           </span>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-8">
+            <ProjectCard
+              title="KeyType"
+              description="This is a Typing Speed Test Platform which showcase the typing speed of the user with various shaders and a virtual keyboard with interactions"
+              website="https://keytype.jaydeepw.tech/"
+              github="https://github.com/jaydxxp/keytype"
+              frameworks={[
+                <FrameworkIcon icon={<ReactIcon />} name="React" />,
+                <FrameworkIcon icon={<TypeScript />} name="Typescript" />,
+                <FrameworkIcon icon={<NextJs />} name="Nextjs" />,
+                <FrameworkIcon icon={<Shadcn />} name="Shadcn" />,
+
+                <FrameworkIcon icon={<Chartjs />} name="Chartjs" />,
+              ]}
+            />
             <ProjectCard
               title="Travelio"
               description="Based on my learning of Generative AI, I built an AI Travel Planner that creates a day-to-day itinerary for you using AI."
@@ -72,21 +84,6 @@ export default function Projects() {
                 <FrameworkIcon icon={<Gemini />} name="Gemini" />,
                 <FrameworkIcon icon={<Shadcn />} name="ShadCN" />,
                 <FrameworkIcon icon={<ExpressJs />} name="ExpressJs" />,
-              ]}
-            />
-            <ProjectCard
-              title="Medium Clone"
-              description="This is a Medium Blog Clone website made while learning Full Stack Development, with features inspired by the original platform."
-              image="/Medium.png"
-              website="https://medium-clone-olive-chi.vercel.app/"
-              github="https://github.com/jaydxxp/medium_clone"
-              frameworks={[
-                <FrameworkIcon icon={<ReactIcon />} name="React" />,
-                <FrameworkIcon icon={<PostgreSQL />} name="PostgreSQL" />,
-                <FrameworkIcon icon={<Prisma />} name="Prisma" />,
-                <FrameworkIcon icon={<JavaScript />} name="Javascript" />,
-                <FrameworkIcon icon={<Workers />} name="Cloudflare Workers" />,
-                <FrameworkIcon icon={<Hono />} name="Hono" />,
               ]}
             />
           </div>
