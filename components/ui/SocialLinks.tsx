@@ -14,7 +14,7 @@ type LinkItem = {
 
 export default function SocialLinks() {
   const items: LinkItem[] = [
-    { href: "https://drive.google.com/file/d/1zaRGv5Io1x1sDeKuAMw4K0x6Dwo2_o-M/view", label: "resume", svg: <Resume /> },
+    { href: "https://drive.google.com/file/d/1JoRH6-eGACAK-ch6DFaUaCvLK3F75Dub/view?usp=sharing", label: "resume", svg: <Resume /> },
     { href: "https://github.com/jaydxxp", label: "github", svg: <Github /> },
     { href: "https://www.linkedin.com/in/jaydeepwagaskar/", label: "linkedin", svg: <Linkedin /> },
     { href: "mailto:jaydeepwaghaskar@gmail.com", label: "email", svg: <Email /> },
