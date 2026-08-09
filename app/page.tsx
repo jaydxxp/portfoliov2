@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import GitHubContributions from "@/components/GitHubContributions";
 import Technologies from "@/components/Technologies";
 import Education from "@/components/Education";
 import Experience from "@/components/Experience";
@@ -10,6 +11,7 @@ export default function Home() {
   return <div>
     
     <Hero/>
+    <GitHubContributions/>
     <Technologies/>
     <Experience/>
     <Education />

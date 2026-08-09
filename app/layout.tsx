@@ -6,6 +6,7 @@ import { Hanken_Grotesk } from "next/font/google";
 import { Pixelify_Sans } from "next/font/google";
 import { Instrument_Serif } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -115,6 +116,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+     
+<Script
+  src="https://www.googletagmanager.com/gtag/js?id=G-T3YZXDFNYX"
+  strategy="afterInteractive"
+/>
+
+<Script id="google-analytics" strategy="afterInteractive">
+  {`
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-T3YZXDFNYX');
+  `}
+</Script>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${Satoshi_font.variable} ${Pixelify.variable} ${Grotesk.variable} ${Instrument.variable} antialiased`}
       >
