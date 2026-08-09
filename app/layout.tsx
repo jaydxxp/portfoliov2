@@ -116,24 +116,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-     
-<Script
-  src="https://www.googletagmanager.com/gtag/js?id=G-T3YZXDFNYX"
-  strategy="afterInteractive"
-/>
-
-<Script id="google-analytics" strategy="afterInteractive">
-  {`
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-T3YZXDFNYX');
-  `}
-</Script>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${Satoshi_font.variable} ${Pixelify.variable} ${Grotesk.variable} ${Instrument.variable} antialiased`}
       >
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-T3YZXDFNYX"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-T3YZXDFNYX');
+          `}
+        </Script>
         {children}
         <Analytics />
       </body>

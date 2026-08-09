@@ -5,10 +5,17 @@ export default function Footer() {
   const [views, setViews] = useState<number | null>(null);
 
   useEffect(() => {
-    // Using a frequently used counter API
-    fetch("https://api.counterapi.dev/v1/jaydeepw/visits/up")
-      .then((res) => res.json())
-      .then((data) => setViews(data.count))
+    fetch("https://api.counterapi.dev/v2/jaydeepw/visits")
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        const count =
+          typeof data?.count === "number"
+            ? data.count
+            : typeof data?.value === "number"
+              ? data.value
+              : null;
+        setViews(count);
+      })
       .catch((err) => {
         console.error("Counter error:", err);
         setViews(null);
@@ -42,7 +49,7 @@ export default function Footer() {
         <span className="w-2 h-2 bg-[#006EC9] rounded-full"></span>
         <span className="font-medium ">Mumbai, India</span>
         <span className="text-[#666]">{time}</span>
-        {views !== null && (
+        {typeof views === "number" && (
           <>
             <span className="text-[#aaa]">•</span>
             <span className="text-[#666] tracking-tighter">

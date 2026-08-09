@@ -81,7 +81,11 @@ async function getContributions(): Promise<ContributionsResponse | null> {
       { next: { revalidate: 3600 } }
     );
     if (!res.ok) return null;
-    return res.json();
+
+    const data = await res.json();
+    if (!Array.isArray(data?.contributions)) return null;
+
+    return data;
   } catch {
     return null;
   }
@@ -137,7 +141,8 @@ function ContributionGrid({
                 style={{
                   width: CELL,
                   height: CELL,
-                  backgroundColor: LEVEL_COLORS[Math.min(day.level, 4)],
+                  backgroundColor:
+                    LEVEL_COLORS[Math.min(Math.max(day.level ?? 0, 0), 4)],
                 }}
               />
             ))}
@@ -166,7 +171,8 @@ function ContributionLegend() {
 
 export default async function GitHubContributions() {
   const data = await getContributions();
-  const weeks = data ? groupByWeeks(data.contributions) : [];
+  const weeks =
+    data?.contributions?.length ? groupByWeeks(data.contributions) : [];
   const monthLabels = getMonthLabels(weeks);
   const total = data?.total.lastYear ?? 0;
 
