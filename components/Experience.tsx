@@ -28,7 +28,7 @@ export default function Experience() {
         <EduTab
   title="Judix"
   subtitle="Full Stack Developer Intern"
-  year="March 2026 - Present"
+  year="March 2026 - May 2026"
   coursework={[
     { name: "React.js", icon: <ReactIcon /> },
     { name: "Node.js", icon: <NodeJs /> },
