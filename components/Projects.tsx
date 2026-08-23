@@ -72,20 +72,21 @@ export default function Projects() {
                 <FrameworkIcon icon={<Chartjs />} name="Chartjs" />,
               ]}
             />
+            
             <ProjectCard
-              title="ConioGPT"
-              description="This Project is Basically a Social Media Assistant for Creators to get trendy and real time trending captions,song and more."
-              image="/ConioGPT.png"
-              website="https://conio-gpt.vercel.app/"
-              github="https://github.com/jaydxxp/Coniogpt"
-              frameworks={[
-                <FrameworkIcon icon={<ReactIcon />} name="React" />,
-                <FrameworkIcon icon={<MongoDB />} name="MongoDB" />,
-                <FrameworkIcon icon={<Gemini />} name="Gemini" />,
-                <FrameworkIcon icon={<Shadcn />} name="ShadCN" />,
-                <FrameworkIcon icon={<ExpressJs />} name="ExpressJs" />,
-              ]}
-            />
+  title="Chalk AI"
+  description="An AI-powered whiteboard assistant that transforms rough sketches into clear, professional diagrams using AI, voice input, and multiple image models."
+  image="/ChalkAI.png"
+  website="https://chalk-ai.jaydeepw.tech"
+  github="https://github.com/jaydxxp/ChalkAI"
+  frameworks={[
+    <FrameworkIcon icon={<NextJs />} name="Next.js" />,
+    <FrameworkIcon icon={<TypeScript />} name="TypeScript" />,
+    <FrameworkIcon icon={<MongoDB />} name="MongoDB" />,
+    <FrameworkIcon icon={<Gemini />} name="Gemini" />,
+    <FrameworkIcon icon={<TailwindCss />} name="Tailwind CSS" />,
+  ]}
+/>
           </div>
         </div>
       </div>
