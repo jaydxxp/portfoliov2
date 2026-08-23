@@ -1,24 +1,20 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import AnimatedVisitorCount from "./ui/AnimatedVisitorCount";
+
 export default function Footer() {
   const [time, setTime] = useState("");
-  const [views, setViews] = useState<number | null>(null);
+  const [visitors, setVisitors] = useState<number | null>(null);
 
   useEffect(() => {
-    fetch("https://api.counterapi.dev/v2/jaydeepw/visits")
+    fetch("/api/views")
       .then((res) => (res.ok ? res.json() : null))
       .then((data) => {
-        const count =
-          typeof data?.count === "number"
-            ? data.count
-            : typeof data?.value === "number"
-              ? data.value
-              : null;
-        setViews(count);
+        setVisitors(typeof data?.count === "number" ? data.count : null);
       })
       .catch((err) => {
-        console.error("Counter error:", err);
-        setViews(null);
+        console.error("Visitor count error:", err);
+        setVisitors(null);
       });
 
     function updateTime() {
@@ -40,23 +36,25 @@ export default function Footer() {
   }, []);
 
   return (
-    <div
-      className="
-        flex flex-row items-stretch
-        font-satoshi justify-center"
-    >
-      <div className="flex items-center gap-3 text-xs text-[#444] border-t pt-2 border-t-[#444] w-full max-w-lg md:max-w-xl pb-12 mt-12">
-        <span className="w-2 h-2 bg-[#006EC9] rounded-full"></span>
-        <span className="font-medium ">Mumbai, India</span>
-        <span className="text-[#666]">{time}</span>
-        {typeof views === "number" && (
-          <>
-            <span className="text-[#aaa]">•</span>
-            <span className="text-[#666] tracking-tighter">
-              {views.toLocaleString()} views
-            </span>
-          </>
+    <div className="flex flex-row items-stretch font-satoshi justify-center">
+      <div className="w-full max-w-lg md:max-w-xl pb-8 mt-4">
+        {typeof visitors === "number" && (
+          <p className="mb-3 text-sm text-[#666] tracking-normal">
+            You are the{" "}
+            <span className="inline-flex items-center rounded-lg border border-dashed border-black bg-blue-200 px-2.5 py-1 text-base font-bold text-[#006EC9]">
+              <AnimatedVisitorCount value={visitors} />
+            </span>{" "}
+            visitor.
+          </p>
         )}
+
+        <div className="flex items-center justify-between gap-4 border-t border-t-[#444] pt-2 text-xs">
+          <div className="flex items-center gap-3 text-[#444]">
+            <span className="h-2 w-2 shrink-0 rounded-full bg-[#006EC9]" />
+            <span className="font-medium">Mumbai, India</span>
+          </div>
+          <span className="shrink-0 text-[#666]">{time}</span>
+        </div>
       </div>
     </div>
   );

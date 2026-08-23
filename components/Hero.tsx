@@ -18,16 +18,10 @@ export default function Hero() {
           Jaydeep Wagaskar
         </h2>
 
-        <p className="text-black text-md md:text-lg font-bold mt-4">
-          Full Stack Developer
-        </p>
-
         <p className="text-sm md:text-sm text-[#666] mt-4 leading-5 text-justify">
-          Hi there, I’m Jaydeep, a CS student who loves building things on the web. I enjoy creating 
-          <b style={{ color: "#000" }}> full-stack applications</b>, exploring new technologies, and solving 
-          <b style={{ color: "#000" }}> real-world problems</b> through code. In my spare time, I work on personal projects,
-          experiment with new tools, and keep sharpening my development skills.
-        </p>
+  20 y.o. <b style={{ color: "#000" }}>fullstack eng</b> with design eyes. i build, break, and fix things people use. focused on solving <b style={{ color: "#000" }}>real problems</b> and making a <b style={{ color: "#000" }}>real impact</b>.<br />
+  dms are open for <b style={{ color: "#000" }}>work/business</b>.
+</p>
 
         <SocialLinks /> 
       </div>

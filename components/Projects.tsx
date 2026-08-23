@@ -18,7 +18,7 @@ import Bun from "./Svg/Bun";
 
 export default function Projects() {
   return (
-    <div className="w-full px-6 md:px-12 py-6">
+    <div className="w-full px-6 md:px-12 pt-6 pb-2">
       <div className="w-full flex justify-center">
         <div className="flex flex-col max-w-lg md:max-w-xl w-full">
           <span className="font-satoshi font-bold text-2xl text-left md:text-left mb-4 text-[#666]">

@@ -1,3 +1,8 @@
+import {
+  getGitHubContributions,
+  type Contribution,
+} from "@/lib/github-contributions";
+
 const GITHUB_USERNAME = "jaydxxp";
 const CELL = 11;
 const GAP = 3;
@@ -10,46 +15,6 @@ const LEVEL_COLORS = [
   "#3A94CF",
   "#006EC9",
 ] as const;
-
-type Contribution = {
-  date: string;
-  count: number;
-  level: number;
-};
-
-type ContributionsResponse = {
-  total: { lastYear: number };
-  contributions: Contribution[];
-};
-
-function groupByWeeks(contributions: Contribution[]): Contribution[][] {
-  if (contributions.length === 0) return [];
-
-  const weeks: Contribution[][] = [];
-  let currentWeek: Contribution[] = [];
-
-  const firstDayOfWeek = new Date(contributions[0].date + "T00:00:00").getDay();
-  for (let i = 0; i < firstDayOfWeek; i++) {
-    currentWeek.push({ date: "", count: 0, level: 0 });
-  }
-
-  for (const day of contributions) {
-    currentWeek.push(day);
-    if (currentWeek.length === 7) {
-      weeks.push(currentWeek);
-      currentWeek = [];
-    }
-  }
-
-  if (currentWeek.length > 0) {
-    while (currentWeek.length < 7) {
-      currentWeek.push({ date: "", count: 0, level: 0 });
-    }
-    weeks.push(currentWeek);
-  }
-
-  return weeks;
-}
 
 function getMonthLabels(weeks: Contribution[][]) {
   const labels: { label: string; col: number }[] = [];
@@ -72,23 +37,6 @@ function getMonthLabels(weeks: Contribution[][]) {
   });
 
   return labels;
-}
-
-async function getContributions(): Promise<ContributionsResponse | null> {
-  try {
-    const res = await fetch(
-      `https://github-contributions-api.jogruber.de/v4/${GITHUB_USERNAME}?y=last`,
-      { next: { revalidate: 3600 } }
-    );
-    if (!res.ok) return null;
-
-    const data = await res.json();
-    if (!Array.isArray(data?.contributions)) return null;
-
-    return data;
-  } catch {
-    return null;
-  }
 }
 
 function formatDate(date: string) {
@@ -170,11 +118,10 @@ function ContributionLegend() {
 }
 
 export default async function GitHubContributions() {
-  const data = await getContributions();
-  const weeks =
-    data?.contributions?.length ? groupByWeeks(data.contributions) : [];
+  const data = await getGitHubContributions(GITHUB_USERNAME);
+  const weeks = data?.weeks ?? [];
   const monthLabels = getMonthLabels(weeks);
-  const total = data?.total.lastYear ?? 0;
+  const total = data?.total ?? 0;
 
   return (
     <div className="flex flex-col md:flex-row items-center md:items-center gap-8 md:gap-12 px-6 md:px-12 py-6 justify-center">
